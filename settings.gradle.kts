@@ -6,4 +6,5 @@ rootProject.name = "spectral"
 
 include(":common")
 include(":logger")
+include(":spectral-client")
 

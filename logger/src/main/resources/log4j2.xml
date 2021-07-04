@@ -5,7 +5,7 @@
             <PatternLayout pattern="%style{[%d{HH:mm:ss}]}{blue} %highlight{[%t/%level]}{FATAL=red, ERROR=red, WARN=yellow, INFO=green, DEBUG=green, TRACE=blue} %style{(%logger{1})}{cyan} %highlight{%msg%n}{FATAL=red, ERROR=red, WARN=normal, INFO=normal, DEBUG=normal, TRACE=normal}" disableAnsi="false" />
         </Console>
 
-        <RollingRandomAccessFile name="LattestFile" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log.gz">
+        <RollingRandomAccessFile name="LatestFile" fileName="${sys:spectral.logs.dir}/latest.log" filePattern="${sys:spectral.logs.dir}/%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout pattern="[%d{HH:mm:ss}] [%t/%leve] (%logger{1}) %msg%n" />
             <Policies>
                 <TimeBasedTriggeringPolicy />
