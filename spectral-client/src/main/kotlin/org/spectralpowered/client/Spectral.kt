@@ -17,18 +17,44 @@
 
 package org.spectralpowered.client
 
-import org.koin.core.component.KoinComponent
 import org.koin.core.context.startKoin
+import org.spectralpowered.client.gui.ClientFrame
+import org.spectralpowered.client.gui.theme.SpectralTheme
 import org.spectralpowered.common.Platform
 import org.spectralpowered.common.koin.get
 import java.io.File
+import javax.swing.JDialog
+import javax.swing.JFrame
 
-class SpectralClient {
+class Spectral {
+
+    private lateinit var frame: ClientFrame
 
     fun start() {
         logger.info("Starting Spectral client...")
 
+        /*
+         * Start the client gui.
+         */
+        this.startGui()
+    }
 
+    private fun startGui() {
+        logger.info("Preparing client window.")
+
+        /*
+         * Install the spectral client LAF.
+         */
+        SpectralTheme.install()
+
+        JFrame.setDefaultLookAndFeelDecorated(true)
+        JDialog.setDefaultLookAndFeelDecorated(true)
+
+        /*
+         * Open the root client frame.
+         */
+        frame = ClientFrame()
+        frame.isVisible = true
     }
 
     companion object {
@@ -62,7 +88,7 @@ class SpectralClient {
             /*
              * Start the spectral client.
              */
-            get<SpectralClient>().start()
+            get<Spectral>().start()
         }
 
         private fun initKoin() {

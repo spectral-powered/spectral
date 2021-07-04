@@ -15,10 +15,26 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package org.spectralpowered.client
+package org.spectralpowered.client.gui.theme
 
-import org.koin.dsl.module
+import com.formdev.flatlaf.IntelliJTheme
+import org.spectralpowered.client.logger
 
-val ClientModule = module {
-    single { Spectral() }
+class SpectralTheme : IntelliJTheme.ThemeLaf(spectralTheme) {
+
+    override fun getName(): String {
+        return "Spectral Powered Theme"
+    }
+
+    companion object {
+
+        fun install(): Boolean {
+            logger.info("Installing Spectral UI theme.")
+            return setup(SpectralTheme())
+        }
+
+        private val spectralTheme: IntelliJTheme get() {
+            return IntelliJTheme(SpectralTheme::class.java.getResourceAsStream("/themes/spectral.theme.json"))
+        }
+    }
 }
