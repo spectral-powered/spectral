@@ -7,3 +7,4 @@ rootProject.name = "spectral-powered"
 
 include(":common")
 include(":logger")
+include(":spectral-launcher")
