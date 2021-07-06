@@ -27,7 +27,7 @@ import java.io.IOException
 import java.io.InputStream
 import java.net.URL
 
-class Gif {
+class GifDecoder {
 
     internal var `in`: BufferedInputStream? = null
     internal var status = 0

@@ -31,7 +31,7 @@ object Launcher {
          * Update the log path.
          */
         val logPath = Platform.current().basePath.toString() + File.separator + "logs/"
-        System.setProperty("spectral.log.dir", logPath)
+        System.setProperty("spectral.logs.dir", logPath)
 
         logger.info("Initializing...")
 

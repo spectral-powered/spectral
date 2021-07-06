@@ -38,6 +38,18 @@ class SplashScreen : JFrame("Spectral") {
      */
     private val graphics = GraphicsEnvironment.getLocalGraphicsEnvironment()
 
+    /**
+     * Splash screen progress properties.
+     */
+
+    var progress: Int
+        get() = progressBar.value
+        set(value) { progressBar.value = value }
+
+    var statusText: String
+        get() = progressText.text
+        set(value) { progressText.text = value }
+
     init {
         defaultCloseOperation = EXIT_ON_CLOSE
         isUndecorated = true

@@ -17,7 +17,7 @@
 
 package org.spectralpowered.launcher.gui.components
 
-import org.spectralpowered.launcher.util.Gif
+import org.spectralpowered.launcher.util.GifDecoder
 import java.awt.Image
 import java.awt.Rectangle
 import java.io.ByteArrayInputStream
@@ -38,7 +38,7 @@ class AnimatedLogo : JLabel() {
     }
 
     private fun animate() {
-        val gif = Gif()
+        val gif = GifDecoder()
         gif.read(AnimatedLogo::class.java.getResourceAsStream("/images/logo-animated.gif"))
         val frameCount = gif.frameCount
 

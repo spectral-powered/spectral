@@ -16,4 +16,6 @@ dependencies {
     implementation(project(":logger"))
     implementation("com.formdev:flatlaf:_")
     implementation("com.formdev:flatlaf-intellij-themes:_")
+    implementation("net.java.dev.jna:jna:_")
+    implementation("net.java.dev.jna:jna-platform:_")
 }
