@@ -18,6 +18,7 @@
 package org.spectralpowered.launcher
 
 import org.koin.core.context.startKoin
+import org.spectralpowered.client.ClientModule
 import org.spectralpowered.common.Platform
 import org.spectralpowered.common.koin.get
 import java.io.File
@@ -67,7 +68,8 @@ object Launcher {
 
         startKoin {
             modules(
-                LauncherModule
+                LauncherModule,
+                ClientModule
             )
         }
     }

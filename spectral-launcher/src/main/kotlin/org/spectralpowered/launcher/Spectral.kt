@@ -19,6 +19,7 @@ package org.spectralpowered.launcher
 
 import com.sun.jna.platform.win32.User32
 import com.sun.jna.platform.win32.WinDef
+import org.spectralpowered.client.SpectralClient
 import org.spectralpowered.common.koin.inject
 import org.spectralpowered.launcher.gui.SplashScreen
 import org.spectralpowered.launcher.gui.theme.SpectralTheme
@@ -36,6 +37,8 @@ class Spectral {
      * The window handle of the steam OSRS client.
      */
     var steamClient: WinDef.HWND? = null
+
+    private val spectralClient: SpectralClient by inject()
 
     fun launch() {
         /*
@@ -127,6 +130,21 @@ class Spectral {
     private fun attachClient() {
         logger.info("Attaching to Steam client process.")
 
+        /*
+         * Update the splash screen.
+         */
+        splashScreen.progress = 100
+        splashScreen.statusText = "Preparing Spectral client."
+
+        /*
+         * Open the spectral client.
+         */
+        spectralClient.openAndAttachClient(steamClient!!)
+
+        /*
+         * Hide the splash screen.
+         */
+        splashScreen.isVisible = false
     }
 
     companion object {
