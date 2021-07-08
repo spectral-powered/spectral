@@ -18,41 +18,27 @@
 package org.spectralpowered.client.gui
 
 import com.sun.jna.platform.win32.WinDef
-import org.spectralpowered.client.gui.components.NativeClientCanvas
-import org.spectralpowered.client.logger
 import java.awt.Dimension
 import javax.swing.ImageIcon
-import javax.swing.JButton
 import javax.swing.JFrame
 
 class ClientFrame : JFrame("Spectral") {
 
-    private lateinit var nativeClientCanvas: NativeClientCanvas
+    private lateinit var nativeCanvas: NativeCanvas
 
     init {
         defaultCloseOperation = EXIT_ON_CLOSE
         size = Dimension(INITIAL_WIDTH, INITIAL_HEIGHT)
         preferredSize = size
         iconImages = icons
-
-        val button = JButton("Hello World")
-        this.add(button)
     }
 
     fun attach(hwnd: WinDef.HWND) {
-        logger.info("Attaching native window to Spectral client frame.")
-
-        nativeClientCanvas = NativeClientCanvas(hwnd)
-        nativeClientCanvas.size = size
-        nativeClientCanvas.isVisible = true
-
-        this.add(nativeClientCanvas)
+        nativeCanvas = NativeCanvas(hwnd)
+        nativeCanvas.size = size
+        nativeCanvas.isVisible = false
+        this.add(nativeCanvas)
         this.pack()
-    }
-
-    fun open() {
-        setLocationRelativeTo(null)
-        isVisible = true
     }
 
     companion object {

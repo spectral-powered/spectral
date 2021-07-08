@@ -22,11 +22,10 @@ import org.spectralpowered.client.gui.ClientFrame
 
 class SpectralClient {
 
-    private val frame = ClientFrame()
+    private lateinit var clientFrame: ClientFrame
 
-    fun openAndAttachClient(window: WinDef.HWND) {
-        frame.open()
-        frame.attach(window)
+    fun openGui(hwnd: WinDef.HWND) {
+        logger.info("Opening Spectral Client UI.")
     }
 
 }

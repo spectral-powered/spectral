@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package org.spectralpowered.client.gui.components
+package org.spectralpowered.client.gui
 
 import com.sun.jna.Native
 import com.sun.jna.platform.win32.User32
@@ -25,11 +25,10 @@ import java.awt.Canvas
 import java.awt.Graphics
 import java.util.concurrent.atomic.AtomicBoolean
 
-class NativeClientCanvas(val hostHandle: WinDef.HWND) : Canvas() {
+class NativeCanvas(private val hostHandle: WinDef.HWND) : Canvas() {
 
-    internal var parentHandle: WinDef.HWND? = null
-    internal var localHandle: WinDef.HWND? = null
-    internal var overlayHandle: WinDef.HWND? = null
+    private var parentHandle: WinDef.HWND? = null
+    private var localHandle: WinDef.HWND? = null
 
     private val attached = AtomicBoolean(false)
 

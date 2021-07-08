@@ -139,7 +139,7 @@ class Spectral {
         /*
          * Open the spectral client.
          */
-        spectralClient.openAndAttachClient(steamClient!!)
+        spectralClient.openGui(steamClient!!)
 
         /*
          * Hide the splash screen.
